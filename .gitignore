@@ -1,0 +1,27 @@
+# Compiled files
+*.o
+*.a
+*.so
+obj/
+
+# Executable
+fractol
+
+# MiniLibX files
+mlx_linux/
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Debug files
+*.dSYM/
+# MiniLibX git metadata
+lib/mlx/.git/
+lib/mlx/.gitignore
