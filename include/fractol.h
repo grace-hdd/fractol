@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <math.h>
-# include <mlx.h>
+# include "../lib/mlx/mlx.h"
 
 /* Window dimensions */
 # define WIDTH 800

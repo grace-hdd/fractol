@@ -38,7 +38,7 @@ int	mouse_press(int button, int x, int y, t_fractol *fractol)
 	double	mouse_real;
 	double	mouse_imag;
 
-	zoom_factor = 1.2;
+	zoom_factor = 1.05;
 	if (button == MOUSE_WHEEL_UP || button == MOUSE_WHEEL_DOWN)
 	{
 		mouse_real = ((double)x / WIDTH) * (4.0 / fractol->zoom)
