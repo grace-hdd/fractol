@@ -56,10 +56,10 @@ int	main(int argc, char **argv)
 
 	validate_arguments(argc, argv, &fractol);
 	fractol_init(&fractol, argv);
+	render_fractal(&fractol);
 	mlx_key_hook(fractol.win, key_press, &fractol);
 	mlx_mouse_hook(fractol.win, mouse_press, &fractol);
 	mlx_hook(fractol.win, 17, 0, close_window, &fractol);
-	render_fractal(&fractol);
 	mlx_loop(fractol.mlx);
 	return (0);
 }

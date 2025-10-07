@@ -20,8 +20,8 @@
 # include "../lib/mlx/mlx.h"
 
 /* Window dimensions */
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 400
+# define HEIGHT 600
 
 /* Colors */
 # define BLACK 0x000000

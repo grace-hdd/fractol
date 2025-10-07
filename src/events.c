@@ -34,25 +34,27 @@ int	key_press(int keycode, t_fractol *fractol)
 
 int	mouse_press(int button, int x, int y, t_fractol *fractol)
 {
-	double	zoom_factor;
+	double	old_zoom;
+	double	new_zoom;
 	double	mouse_real;
 	double	mouse_imag;
 
-	zoom_factor = 1.05;
 	if (button == MOUSE_WHEEL_UP || button == MOUSE_WHEEL_DOWN)
 	{
-		mouse_real = ((double)x / WIDTH) * (4.0 / fractol->zoom)
-			- (2.0 / fractol->zoom) + fractol->move_x;
-		mouse_imag = ((double)y / HEIGHT) * (4.0 / fractol->zoom)
-			- (2.0 / fractol->zoom) + fractol->move_y;
+		old_zoom = fractol->zoom;
 		if (button == MOUSE_WHEEL_UP)
-			fractol->zoom *= zoom_factor;
+			fractol->zoom *= 1.3;
 		else if (button == MOUSE_WHEEL_DOWN)
-			fractol->zoom /= zoom_factor;
+			fractol->zoom /= 1.3;
+		new_zoom = fractol->zoom;
+		mouse_real = ((double)x / WIDTH) * (4.0 / old_zoom)
+			- (2.0 / old_zoom) + fractol->move_x;
+		mouse_imag = ((double)y / HEIGHT) * (4.0 / old_zoom)
+			- (2.0 / old_zoom) + fractol->move_y;
 		fractol->move_x = mouse_real - ((double)x / WIDTH)
-			* (4.0 / fractol->zoom) + (2.0 / fractol->zoom);
+			* (4.0 / new_zoom) + (2.0 / new_zoom);
 		fractol->move_y = mouse_imag - ((double)y / HEIGHT)
-			* (4.0 / fractol->zoom) + (2.0 / fractol->zoom);
+			* (4.0 / new_zoom) + (2.0 / new_zoom);
 		render_fractal(fractol);
 	}
 	return (0);
